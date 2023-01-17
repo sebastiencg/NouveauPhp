@@ -6,5 +6,6 @@
         </a>
         <h4><?= $reponse["typeRecette"] ?></h4>
         <p><?= $reponse["recette"] ?></p>
+        <p><strong>publié le <?= $reponse["date"] ?> à <?= $reponse["heure"] ?></strong></p>
     </div>
 <?php endforeach;?>

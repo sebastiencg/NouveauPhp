@@ -16,9 +16,15 @@ if(!empty($_POST['recette'])){
 }
 if($titre&&$typeRecette&&$recette){
 
+    $date=new DateTime();
+    $date=$date->format("d/m/y");
+    $heure=new DateTime();
+    $heure=$heure->format("H:i");
+
+
     $requette= new Entity\Post();
     $requette->constructeur();
-    $requette->addPost($titre,$typeRecette,$recette);
+    $requette->addPost($titre,$typeRecette,$recette,$date,$heure);
 
 }
 App\Redirection::redirection("");

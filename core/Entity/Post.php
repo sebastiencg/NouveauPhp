@@ -19,21 +19,16 @@ class Post extends AbstractMain
         ]);
         return $requette;
     }
-    public function deletePoste($id,){
-        $sql="DELETE FROM `recette` WHERE id=:id";
-        $requette=$this->con->prepare($sql);
-        $requette->execute([
-            "id"=>$id
-        ]);
-    }
-     public function addPost($titre,$typeRecette,$recette){
+     public function addPost(string $titre,string $typeRecette,string $recette,string $date,string $heure){
 
-         $sql="INSERT INTO `recette`(`titre`, `typeRecette`, `recette`) VALUES (:titre,:typeRecette,:recette)";
+         $sql="INSERT INTO `$this->tableName`(`titre`, `typeRecette`, `recette`,`date`,`heure`) VALUES (:titre,:typeRecette,:recette,:date,:heure)";
          $requette=$this->con->prepare($sql);
          $requette->execute([
              "titre"=>$titre,
              "typeRecette"=>$typeRecette,
-             "recette"=>$recette
+             "recette"=>$recette,
+             "date"=>$date,
+             "heure"=>$heure
          ]);
      }
 

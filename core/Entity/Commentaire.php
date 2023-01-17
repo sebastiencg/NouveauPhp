@@ -10,7 +10,7 @@ class commentaire extends AbstractMain
 
     public function Addcommentaire($id_recette,$commentaire){
 
-        $sql = "INSERT INTO `commentaire-recettte`(`commentaire`, `id_recette`) VALUES (:commentaire,:id_recette)";
+        $sql = "INSERT INTO `$this->tableName`(`commentaire`, `id_recette`) VALUES (:commentaire,:id_recette)";
         $requette = $this->con->prepare($sql);
         $requette->execute([
             "commentaire" => $commentaire,

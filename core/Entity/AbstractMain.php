@@ -43,5 +43,13 @@ class AbstractMain extends Connection
          $reponses=$requette->fetchAll();
          return $reponses;
      }
+    public function delete($id){
+        $sql="DELETE FROM `$this->tableName` WHERE id=:id";
+        $requette=$this->con->prepare($sql);
+        $requette->execute([
+            "id"=>$id
+        ]);
+    }
+
 
 }
